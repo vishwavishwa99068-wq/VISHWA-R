@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VISHWA R | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#0b0b0f;
+    --card:#14141a;
+    --text:#ffffff;
+    --muted:#a6a6b3;
+    --accent:#6f7cff;
+    --accent2:#00d4ff;
+    --border:rgba(255,255,255,0.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    backdrop-filter:blur(18px);
+    background:rgba(11,11,15,.75);
+    z-index:1000;
+    border-bottom:1px solid var(--border);
+}
+
+.nav-wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo{
+    font-size:1.2rem;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:var(--accent);
+}
+
+.nav-btn{
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    padding:10px 18px;
+    border-radius:30px;
+    font-weight:600;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle,var(--accent),transparent 70%);
+    opacity:.15;
+    right:-200px;
+    top:10%;
+}
+
+.hero-content{
+    max-width:750px;
+}
+
+.tag{
+    color:var(--accent2);
+    font-size:.95rem;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:clamp(3rem,9vw,6rem);
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--accent);
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:1.1rem;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    text-decoration:none;
+    padding:14px 24px;
+    border-radius:40px;
+    font-weight:600;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:white;
+}
+
+.btn-secondary{
+    border:1px solid var(--border);
+    color:white;
+}
+
+/* SECTION */
+
+section{
+    padding:100px 0;
+}
+
+.section-title{
+    font-size:2.5rem;
+    margin-bottom:20px;
+}
+
+.section-sub{
+    color:var(--muted);
+    margin-bottom:50px;
+}
+
+/* SERVICES */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:var(--card);
+    padding:30px;
+    border-radius:24px;
+    border:1px solid var(--border);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* PORTFOLIO */
+
+.portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.project{
+    height:250px;
+    border-radius:24px;
+    overflow:hidden;
+    position:relative;
+    background:linear-gradient(135deg,#1a1f35,#232947);
+}
+
+.project-content{
+    position:absolute;
+    bottom:20px;
+    left:20px;
+}
+
+.project h4{
+    margin-bottom:8px;
+}
+
+.project p{
+    color:#d8d8e4;
+}
+
+/* STORY SECTION */
+
+.story{
+    background:#101018;
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+}
+
+.story-text{
+    max-width:800px;
+    color:var(--muted);
+    line-height:2;
+    font-size:1.1rem;
+}
+
+/* CONTACT */
+
+.contact-box{
+    background:var(--card);
+    border-radius:30px;
+    padding:50px;
+    text-align:center;
+    border:1px solid var(--border);
+}
+
+.contact-number{
+    font-size:2rem;
+    color:var(--accent2);
+    margin:20px 0;
+    font-weight:700;
+}
+
+/* FOOTER */
+
+footer{
+    padding:30px 0;
+    text-align:center;
+    color:var(--muted);
+}
+
+/* Animation */
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.hero{
+    text-align:center;
+}
+
+.hero-buttons{
+    justify-content:center;
+}
+
+.contact-box{
+    padding:30px 20px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+<div class="container nav-wrap">
+<div class="logo">VISHWA<span>.</span></div>
+<a href="#contact" class="nav-btn">Contact</a>
+</div>
+</nav>
+
+<section class="hero">
+<div class="container">
+
+<div class="hero-content reveal">
+
+<div class="tag">
+Modern Creative Portfolio
+</div>
+
+<h1>
+VISHWA <span>R</span>
+</h1>
+
+<p>
+Web Designer & Graphics Designer crafting thoughtful digital experiences.
+Specialized in E-Commerce, Telecom, OTT Platforms, Food Delivery, Show Booking Systems and modern business solutions.
+Every interaction is designed with intentionality, subtle storytelling, and meaningful user experiences.
+</p>
+
+<div class="hero-buttons">
+<a href="#work" class="btn btn-primary">View Projects</a>
+<a href="#contact" class="btn btn-secondary">Hire Me</a>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+
+<h2 class="section-title reveal">Services</h2>
+<p class="section-sub reveal">
+Designing digital experiences that feel modern, intuitive and memorable.
+</p>
+
+<div class="grid">
+
+<div class="card reveal">
+<h3>Web Design</h3>
+<p>
+Modern responsive websites with clean layouts, premium visuals and conversion-focused user journeys.
+</p>
+</div>
+
+<div class="card reveal">
+<h3>Graphic Design</h3>
+<p>
+Brand identity, social media creatives, banners, presentations and marketing assets.
+</p>
+</div>
+
+<div class="card reveal">
+<h3>E-Commerce UI</h3>
+<p>
+Online stores designed to improve customer engagement and purchasing experiences.
+</p>
+</div>
+
+<div class="card reveal">
+<h3>Product Design</h3>
+<p>
+OTT platforms, Telecom dashboards, Food Delivery apps and Booking systems.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="work">
+<div class="container">
+
+<h2 class="section-title reveal">Featured Industries</h2>
+<p class="section-sub reveal">
+Creating experiences across multiple industries.
+</p>
+
+<div class="portfolio-grid">
+
+<div class="project reveal">
+<div class="project-content">
+<h4>E-Commerce</h4>
+<p>Shopping Experience Design</p>
+</div>
+</div>
+
+<div class="project reveal">
+<div class="project-content">
+<h4>Telecom</h4>
+<p>Customer Self-Care Platforms</p>
+</div>
+</div>
+
+<div class="project reveal">
+<div class="project-content">
+<h4>OTT Platform</h4>
+<p>Streaming & Entertainment UI</p>
+</div>
+</div>
+
+<div class="project reveal">
+<div class="project-content">
+<h4>Food Delivery</h4>
+<p>Ordering & Tracking Experience</p>
+</div>
+</div>
+
+<div class="project reveal">
+<div class="project-content">
+<h4>Show Booking</h4>
+<p>Tickets & Event Systems</p>
+</div>
+</div>
+
+<div class="project reveal">
+<div class="project-content">
+<h4>Business Solutions</h4>
+<p>Custom Digital Products</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="story">
+<div class="container">
+
+<h2 class="section-title reveal">
+Design With Purpose
+</h2>
+
+<p class="story-text reveal">
+Great animation is not about distracting users. It is about guiding attention,
+creating emotional connection, and supporting the story behind a product.
+Every movement, transition and interaction should feel intentional,
+subtle and meaningful. My design philosophy combines creativity with usability
+to deliver experiences that users genuinely enjoy.
+</p>
+
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+
+<div class="contact-box reveal">
+
+<h2>Let's Build Something Amazing</h2>
+
+<div class="contact-number">
++91 8223883099
+</div>
+
+<p style="color:var(--muted); margin-bottom:25px;">
+Available for freelance projects, UI/UX design, web design and creative collaborations.
+</p>
+
+<a href="tel:+918223883099" class="btn btn-primary">
+Call Now
+</a>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+<div class="container">
+© 2026 VISHWA R • Modern Portfolio Website
+</div>
+</footer>
+
+<script>
+
+const reveals = document.querySelectorAll('.reveal');
+
+function reveal(){
+reveals.forEach(item=>{
+const top=item.getBoundingClientRect().top;
+const windowHeight=window.innerHeight;
+
+if(top < windowHeight-100){
+item.classList.add('active');
+}
+});
+}
+
+window.addEventListener('scroll',reveal);
+reveal();
+
+</script>
+
+</body>
+</html>
